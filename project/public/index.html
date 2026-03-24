@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Time Series Forecaster</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-glob glob-1"></div>
+    <div class="background-glob glob-2"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Bitcoin Forecast AI</h1>
+            <p>Advanced Time Series Prediction Engine</p>
+        </header>
+
+        <section class="controls glass-panel">
+            <div class="control-group">
+                <label for="model-select">Select Model</label>
+                <select id="model-select">
+                    <option value="LSTM" selected>LSTM (Long Short-Term Memory)</option>
+                    <option value="Conv1D">Conv1D CNN</option>
+                    <option value="Dense">Dense Neural Network</option>
+                    <option value="NBEATS">N-BEATS Custom Architecture</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="days-input">Prediction Horizon (Days)</label>
+                <input type="number" id="days-input" value="7" min="1" max="30">
+            </div>
+            <button id="predict-btn" class="btn-primary">Generate Forecast</button>
+        </section>
+
+        <section class="content">
+            <div class="chart-container glass-panel">
+                <div class="chart-header">
+                    <h2>Price Prediction Graph</h2>
+                    <div id="loading-spinner" class="spinner hidden"></div>
+                </div>
+                <div class="canvas-wrapper">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </div>
+
+            <div class="metrics-container glass-panel">
+                <h2>Model Performance Metrics</h2>
+                <div class="table-wrapper">
+                    <table id="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>MAE</th>
+                                <th>RMSE</th>
+                                <th>MAPE (%)</th>
+                                <th>MASE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
